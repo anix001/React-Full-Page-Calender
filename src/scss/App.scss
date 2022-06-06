@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+html{
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+//colors
+$cornflower:#9086F8;
+$d-cornflower:#7A71D9;
+$white:#ffffff;
+$black:#000000;
+
+
+//main-btn section
+.main-btn{
+ padding: 1rem 2rem;
+ background: transparent;
+ border:none;
+ font-size: 1.6rem;
+ font-weight: 600;
+ border-radius: .5rem;
+ cursor: pointer;
+}
+.main-btn.btn-cornflower{
+   background-color: $cornflower;
+   border: .1rem solid $cornflower;
+   color: $white;
+   transition: .2rem ease all;
+   &:hover{
+       background-color: $d-cornflower;
+       transform: .2rem ease all;
+   }
+}
+
+.full-calendar-section{
+    width:90%;
+    margin: 0 auto;
+    // background: red;
+    .full-calendar-contents{
+        // padding: 5rem 0;
+        padding: 0 .5rem;
+        border: .1rem solid bisque;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        .calendar-header{
+            width: 100%;
+            padding: 2rem 0;
+            // background: blueviolet;
+            .calendar-header-contents{
+             width: 100%;
+             display: flex;
+             justify-content: space-between;
+             align-items: center;
+             .month-title-section{
+                 h3{
+                     font-size: 2.5rem;
+                     font-weight: 600;
+                 }
+             }
+            }
+        }
+        .calendar-week-days{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            .calendar-day-name{
+                width: 14%;
+                background: bisque;
+                display:  flex;
+                justify-content: center;
+                font-size: 1.8rem;
+                font-weight: 600;
+                color: black;
+                padding: 1rem 0;
+            }
+        }
+        .main-calendar{
+            display: flex;
+            flex-wrap: wrap;
+            // justify-content: space-between;
+            .singleday{  
+                width: 14.28%;
+                // padding: 2rem 0;
+                // margin: .5rem;
+                font-size: 2rem;
+                align-items: flex-start;
+                padding: .5rem;
+                cursor: pointer;
+                .single-day-contents{
+                    // padding: 5rem 0;
+                    height: 12rem;
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    border: .1rem solid bisque;
+                    flex-direction: column;
+                    .single-day-date{
+                        width: 90%;
+                        display: flex;
+                        justify-content: flex-end;
+                    }
+                    .event{
+                        display: flex;
+                        justify-content: center;
+                        background-color: $cornflower;
+                        width: 95%;
+                        margin: 0 auto;
+                        border-radius: .2rem;
+                        font-size: 1.4rem;
+                        color: $white;
+                        font-weight: 500;
+                        text-transform: capitalize;
+                    }
+                }
+            }
+            .singleday.currentDay{
+                .single-day-contents{
+                    background: bisque;
+                }
+            }
+            .singleday.previousMonth{
+                cursor: default;
+                .single-day-contents{
+                    border:none;
+                } 
+            }
+        }
+    }
+    .modal-backdrop{
+        top: 0;
+        left: 0;
+        z-index: 6;
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        background-color: rgba(0,0,0,0.5);
+    }
+
+    .event-box{
+        // background: red;
+        display: flex;
+        justify-content: center;
+        // margin: 0 auto;
+        .event-box-modal{
+            top: 30%;
+            width: 40rem;
+            background: $white;
+            z-index: 10;
+            padding: 2rem;
+            border-radius: .5rem;
+            position: absolute;
+            // box-shadow: .5rem .5rem .5rem rgba(0,0,0,.5);
+            .event-box-title{
+                margin-bottom: 2rem;
+                .box-title{
+                    h2{
+                        font-size: 2rem;
+                        // color: $d-cornflower;
+                    }
+                }
+            }
+            .event-input-section{
+                width: 100%;
+                padding: 1rem;
+                border: .1rem solid $cornflower;
+                margin-bottom: 1rem;
+                border-radius: .3rem;
+                display: flex;
+                flex-direction: column;
+                label{
+                    font-size: 1.8rem;
+                    font-weight: 500;
+                    color: $black;
+                }
+                input{
+                    width: 100%;
+                    border: none;
+                    padding: 1rem 0 0.2rem .2rem;
+                    border-bottom: .1rem solid $cornflower;
+                    font-size:1.6rem;
+                    font-weight: 500;
+                    outline: none;
+                    text-transform: capitalize;
+                    color: $black;
+                    &::placeholder{
+                        color:$cornflower;
+                    }
+                }
+                textarea{
+                    margin-top: 1rem;
+                    width: 100%;
+                    padding: .5rem;
+                    background: rgb(246, 242, 242);
+                    border: none;
+                    outline: none;
+                    border-radius: .5rem;
+                    font-size: 1.8rem;
+                    resize: none;
+                    color: $black;
+                    &::placeholder{
+                        color: $cornflower ;
+                    }
+                }
+                .error{
+                    border-bottom: .1rem solid red;
+                }
+            }
+            .event-description-section{
+                padding: 0 0 1rem;
+            }
+            .button-areas{
+                display: flex;
+                justify-content: flex-end;
+                color: $white;
+                >*{
+                    margin-left: 1rem;
+                    color: $white;
+                }
+            }
+        }
+    }
+    .event-detail-container{
+        display: flex;
+        justify-content: center;
+        .event-contents{
+            position: absolute;
+            top: 40%;
+            width: 40rem;
+            z-index: 9  ;
+            padding: 2rem;
+            border-radius: .5rem;
+            background-color: $white;
+            box-shadow: .5rem .3rem .5rem rgba(0,0,0,0.5);
+        }
+    }
+}
+
+
